@@ -1,0 +1,64 @@
+@layout('layout')
+
+@section('content')
+@set('titulo', 'Lista de Posts')
+
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    
+    @include('admin.parcials.sidebar')
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 p-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Posts</h1> 
+        <a href="/admin/posts/create" class="btn btn-secondary">Agregar nuevo post</a>
+      </div>
+
+      @!component('components.pagination_search_label', pagination = posts, presenter = 'PaginationPresenter')
+
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @each(post in posts.data)
+        <tr>
+          <td scope="row">
+            {{ (posts.offset + $loop.index + 1) }}
+          </td>
+          <td>
+            {{ post.titulo }}
+          </td>
+          <td>
+            {{ post.getuser }}
+          </td>
+          <td>
+            @can('update_posts')
+            <a class="btn btn-warning"  href="/admin/posts/edit/{{ post.id }}">Editar</a>
+             @endcan
+             @can('delete_posts')
+             <a class="btn btn-danger" href="/admin/posts/delete/{{ post.id }} ">Eliminar</a>
+              @endcan
+          </td>
+        </tr>
+      @else
+        <tr>
+          <td colspan="3" class="text-center">¡Sin resultados!</td>
+        </tr>
+      @endeach
+      </tbody>
+    </table>
+
+    @!component('components.pagination_nav', pagination = posts, presenter = 'PaginationPresenter')
+    
+  </main>
+
+  </div>
+</div>
+
+@endsection

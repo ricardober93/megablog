@@ -1,0 +1,40 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog">Blog</a>
+        </li>
+        @loggedIn
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ auth.user.username }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @is('administrator || moderator')
+            <a class="dropdown-item" href="/admin">Panel de Administración</a> 
+            @endis
+            <a class="dropdown-item" href="/cerrar-sesion">Cerrar Sesión</a>
+          </div>
+        </li>
+        @else  
+               <li class="nav-item">
+          <a class="nav-link" href="/iniciar-sesion">Iniciar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/registrarse">Registarse</a>
+          </li>
+        
+        @endloggedIn
+
+      </ul>
+    </div>
+</nav>

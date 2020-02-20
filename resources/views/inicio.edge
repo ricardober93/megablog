@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog Empresrial </title>
+  {{ style('style') }}
+
+  {{ style('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css') }}
+</head>
+
+  <body class="">
+    <header>
+      @include('inc/navbar')
+</header>
+
+<main class="container "  role="main">
+
+
+  <div class="cover-container d-flex bgimage mb-5">
+    <div class="row d-flex align-items-center w-50 justify-content-center text-center mx-auto">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 justify-content-center text-white  inner cover">
+        <h1>Todo es diseño, ¡todo!</h1>
+        <p class="lead">El diseño gráfico es simple, por eso es tan complicado (Paul Rand)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <div class="container marketing">
+
+    <div class="row">
+      <div class="col-lg-4"> 
+        <img class="bd-placeholder-img w-25 rounded-circle" sizes="100"  src="./grafic.png" alt="diseño grafico tu huella" srcset="./grafic.png">
+        <h2>Diseño Gráfico</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="bd-placeholder-img  w-25  rounded-circle" src="./marketing.png" alt="diseño grafico tu huella" srcset="./marketing.png">
+        <h2>Marketing</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="bd-placeholder-img w-25  rounded-circle" src="./shipment.png" alt="diseño grafico tu huella" srcset="./shipment.png">
+        <h2>Asesorias</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+ {{--  Historia de la emrpesa  --}}
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-12 col-sm-12 col-lg-7">
+        <h1 class="featurette-heading"> Tu huella designs <span class="text-muted"> es calidad, es excelencia.</span></h1>
+        <p class="lead text-justify">
+          Tu huella designs, inicia en el año 2017 con una marca visible, y emprendiendo día a día para llegar a los corazones de cada empresa de Valledupar.
+          Nuestros inicios nos permitieron tener ese contacto con el cliente y fortalecer nuestra manera de llevar el producto, a mediados del 2017 llegábamos a las afueras de las iglesias, promocionando nuestros estampados con una mesa rimax y muchas ganas de salir adelante. Luego ya fuimos incorporando otros métodos de estampados y pasamos a la parte publicitaria en general, en el cual hoy por hoy trabajamos a más de 30 empresas fijas muy importantes en la ciudad de Valledupar y fuera de ella, nombrando algunas, (Billy, La placita, Todo Mar, Café la victoria, Agropecuaria Vallenata, Emperatriz diseñadora de moda, entre otras.</p>
+      </div>
+      <div class="col-md-12 col-lg-5">
+        <img class=" mt-3 border redonded img-fluid" src="./logo_tu_huella.jpg" >
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2017-2020</p>
+  </footer>
+
+
+  {{ script('https://code.jquery.com/jquery-3.4.1.slim.min.js') }}
+  {{ script('https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js') }}
+  {{ script('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js') }}
+</main>
+</body>
+</html>

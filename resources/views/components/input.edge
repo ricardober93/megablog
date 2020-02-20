@@ -1,0 +1,14 @@
+<input 
+id="{{ name }}"
+class="{{ style }}"
+name="{{ name }}"
+type="{{ type ? type : 'text' }}"
+@if(placeholder)
+  placeholder="{{ placeholder }}"
+@endif
+@if(value)
+  value="{{ value }}"
+@endif
+{{ required ? 'required' : null }}
+{{ autofocus ? 'autofocus' : null }}
+>

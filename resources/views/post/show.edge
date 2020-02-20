@@ -1,0 +1,38 @@
+@layout('layout')
+
+@section('content')
+@set('titulo', post.titulo )
+
+
+<div class="container">
+
+  <div class="row mt-4 flex-md-row ">
+
+    <div class="   p-4 col-md-8 ">
+      
+      <h1 class="display-3 mb-4"> {{post.titulo}} </h1>
+  
+      <hr>
+      
+      <img class="img-fluid my-4" src="/uploads/{{post.imagen}}" alt="{{ post.titulo }}">
+      
+      
+      <p class="lead mt-3"> {{ post.contenido }} </p>
+      
+    </div>
+    
+    <div class=" p-4 col-md-4">
+
+      <h1>Los ultimos post</h1>
+      <ul class="list-group list-group-flush">
+        
+        @each(post in posts)
+        <li class="list-group-item" > <a href="/post/{{post.id}}">{{ post.titulo }}</a></li>
+        @endeach
+        
+      </ul>
+    </div>
+    
+  </div>
+</div>
+  @endsection

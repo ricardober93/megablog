@@ -1,0 +1,30 @@
+@layout('layout')
+
+@section('content')
+@set('titulo', 'Administrador')
+
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    
+    @include('admin.parcials.sidebar')
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Panel de Administrator</h1>
+      </div>
+
+      <div class="jumbotron">
+      <h1 class="display-4">Bienvenido {{ auth.user.username }} !</h1>
+        <p class="lead">Desde aqui puede crear nuevos Post y agregar roles a los usuarios de tu sitio</p>
+        <hr class="my-4">
+        <p>Agregaremos más utilidades durante un tiempo...</p>
+        <a class="btn btn-primary btn-lg" href="/admin/posts" role="button">Crear un nuevo Post
+        </a>
+      </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+@endsection

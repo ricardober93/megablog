@@ -1,0 +1,41 @@
+@layout('layout')
+
+@section('content')
+@set('titulo', 'Registrase')
+
+
+<form class="form-signin my-5" action="/registrarse" method="POST">
+
+  @if(flashMessage('error'))
+@component('components.alert', { type: 'danger', dismissible: true })
+  {{ flashMessage('error') }}
+@endcomponent
+@endif
+
+  {{ csrfField() }}
+    <img class="mb-4 mx-auto" src="https://es.freelogodesign.org/Content/img/logo-samples/flooop.png" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Registrase</h1>
+    <div class="form-group">
+      @!component('components.label', {nombre : 'Username', relativo:'Username'})
+      @!component('components.input', { name: 'username', style:'form-control' , type:'text', placeholder:'Ingresar un nombre de usuario', value: old('username'), required: true, autofocus:true })
+     </div>
+
+    <div class="form-group">
+     @!component('components.label', {nombre : 'Correo Electronico', relativo:'correo electronico'})
+     @!component('components.input', { name: 'email', style:'form-control' , type:'email', placeholder:'Ingresar el correo electronico', value: old('email'), required: true, autofocus:true })
+    </div>
+    <div class="form-group">
+      @!component('components.label', {nombre : 'Contraseña', relativo:'Contraseña'})
+     @!component('components.input', { name: 'password', style:'form-control' , type:'password', placeholder:'Ingresar el contraseña', value: old('Password'), required: true, autofocus:false })
+    </div>
+
+    <div class="form-group">
+      @!component('components.label', {nombre : 'Confirmar contraseña', relativo:'Confirmar contraseña'})
+     @!component('components.input', { name: 'password_confirmation', style:'form-control' , type:'Password', placeholder:'Ingresar el contraseña', value: old('Password'), required: true, autofocus:false })
+     {{ elIf('<small class="form-text">$self</small>', getErrorFor('password_confirmation'), hasErrorFor('password_confirmation')) }}
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Registrase</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+  </form>
+@endsection

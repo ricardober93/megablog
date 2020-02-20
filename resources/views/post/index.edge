@@ -1,0 +1,24 @@
+@layout('layout')
+
+@section('content')
+@set('titulo', 'Blog')
+
+
+<div class="container">
+
+  
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Blog</h1>
+  </div>
+  
+  
+  <div class="row mb-2">
+    @!each(post in posts.data, include = 'post.card')
+    </div>
+
+    @!component('components.pagination_nav', pagination = posts, presenter = 'PaginationPresenter')
+    
+</div>
+
+
+  @endsection

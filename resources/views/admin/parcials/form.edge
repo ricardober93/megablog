@@ -1,0 +1,15 @@
+
+  <div class="form-group">
+    @!component('components.label', { nombre:'Titulo del post', relativo: 'titulo del post'})
+    @!component('components.input', {name:'titulo', style:'form-control', value: old('titulo', post.titulo ), required: true, autofocus:true})
+  </div>
+
+  <div class="my-4 custom-file">
+    @!component('components.label', { nombre:'Imagen del post', style:'custom-file-label' ,data:'elegir',  relativo: 'foto'})
+    @!component('components.input', { name:'foto', type:'file', style:'custom-file-input',  value: old('foto', post.imagen ), required: true })
+  </div>
+
+  <div class="form-group">
+    @!component('components.label', { nombre:'contenido', relativo: 'contenido'})
+    @!component('components.textarea', {name:'contenido', row:'12',value: old('contenido', post.contenido ), required: true})
+  </div>

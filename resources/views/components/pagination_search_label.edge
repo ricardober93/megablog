@@ -1,0 +1,12 @@
+
+<!-- resources/views/components/pagination_search_label.edge -->
+<nav class="navbar navbar-light px-0">
+  <form class="form-inline" action="{{ route(pagination.route, {page: 1}) }}">
+    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Buscar" aria-label="Buscar" value="{{ pagination.search }}"/>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+    @if(pagination.search != '')
+      <a type="button" class="btn btn-outline-danger ml-2" href="{{ route(pagination.route, {page: 1}) }}"><i class="fa fa-close"></i></a>
+    @endif
+  </form>
+  <span class="float-right">{{ label(pagination) }}</span>
+</nav>

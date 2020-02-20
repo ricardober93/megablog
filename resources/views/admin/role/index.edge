@@ -1,0 +1,59 @@
+@layout('layout')
+
+@section('content')
+@set('titulo', 'Lista de Usuarios')
+
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    
+    @include('admin.parcials.sidebar')
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 p-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Usuarios y Roles</h1> 
+      </div>
+
+      @!component('components.pagination_search_label', pagination = users, presenter = 'PaginationPresenter')
+
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre de Usuario</th>
+          <th scope="col">Email</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @each(user in users.data)
+        <tr>
+          <td scope="row">
+            {{ (users.offset + $loop.index + 1) }}
+          </td>
+          <td>
+            {{ user.username }}
+          </td>
+          <td>
+            {{ user.email }}
+          </td>
+          <td>
+            @can('update_users')
+           <a class="btn btn-warning"  href="/admin/roles/edit/{{ user.id }}">Editar</a>
+            @endcan
+        </tr>
+      @else
+        <tr>
+          <td colspan="3" class="text-center">¡Sin resultados!</td>
+        </tr>
+      @endeach
+      </tbody>
+    </table>
+
+    @!component('components.pagination_nav', pagination = users, presenter = 'PaginationPresenter')
+    
+  </main>
+
+  </div>
+</div>
+
+@endsection

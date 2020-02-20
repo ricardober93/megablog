@@ -1,0 +1,38 @@
+@layout('layout')
+
+@section('content')
+@set('titulo', 'Editar' + post.titulo )
+
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    
+    @include('admin.parcials.sidebar')
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 p-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Editar post</h1> 
+      </div>
+
+    <form class="mx-auto p-4" action="/admin/posts/edit/{{ post.id }}?_method=PUT" method="POST" action="upload" enctype="multipart/form-data">
+            {{ csrfField() }}
+
+          @if(flashMessage('error'))
+          @component('components.alert', { type: 'danger', dismissible: true })
+            {{ flashMessage('error') }}
+          @endcomponent
+          @endif
+
+           @include('admin.parcials.form')
+          
+           <div class="d-flex">
+
+            <button  class="btn btn-success ml-auto" type="submit"> Editar post</button>
+          </div>
+        </form>
+     </main>
+      </div>
+    </main>
+  </div>
+</div>
+
+@endsection

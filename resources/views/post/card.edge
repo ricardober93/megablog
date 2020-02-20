@@ -1,0 +1,11 @@
+<div class="col-md-3">
+ 
+  <div class="card">
+    <img src="/uploads/{{post.imagen}}" class="imagenpequeña" alt="{{ post.titulo }}">
+    <div class="card-body">
+      <h5 class="card-title">{{  truncate(post.titulo, 20, '') }}</h5>
+      <p class="card-text"> {{  truncate(post.titulo, 60, '...') }} </p>
+      <a href="/post/{{ post.id }}" class="stretched-link btn btn-primary ">Leer mas</a>
+    </div>
+  </div>
+</div>  

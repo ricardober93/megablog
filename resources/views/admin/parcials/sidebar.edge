@@ -1,0 +1,28 @@
+<nav class="col-md-2 d-none d-md-block bg-dark sidebar ">
+  <div class="sidebar-sticky h-100">
+    <ul class="nav flex-column ">
+      <li class="nav-item">
+        <a class="nav-link active" href="/admin">
+          <span data-feather="panel de control"></span>
+          Panel de Control </span>
+        </a>
+      </li>
+      @can('read_posts')
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/posts">
+          <span data-feather="file"></span>
+          Posts
+        </a>
+      </li>
+      @endcan
+      @can('read_users')
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/roles/">
+          <span data-feather="shopping-cart"></span>
+          Usuarios y Roles
+        </a>
+      </li>
+      @endcan
+    </ul>
+  </div>
+</nav>
